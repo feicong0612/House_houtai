@@ -48,7 +48,7 @@ class Head extends Component {
             </div>
             <div className="f-fl">
               <div className="column ganji-dingdong" data-widget="app/ms_v2/common/base_page.js#hoverWidget">
-                <a href="http://dingdong.ganji.com/" gjalog="/dingdong@name=weixin_dingdong@atype=click"
+                <a href="http://dingdong.ganji.com/"
                    className="dingdong-pop" target="_blank" data-role="activeBlock">
                   <span className="arrow"/>
                   <div className="pic-area">
@@ -62,7 +62,7 @@ class Head extends Component {
                   </div>
                 </a>
                 <a target="_blank" rel="nofollow" title="赶集叮咚" href="http://dingdong.ganji.com"
-                   gjalog="/dingdong@name=ding_dong_shouye@atype=click">赶集叮咚</a>
+                >赶集叮咚</a>
               </div>
             </div>
             <div className="f-fl">
@@ -101,14 +101,14 @@ class Head extends Component {
             </div>
 
             <div className="f-fl reg-login" data-widget="app/ms_v2/common/base_page.js#userinfoWidget">
-                <span className="reg-login-btn clearfix">
-                  <a rel="nofollow" className="reg js-signup-btn"
-                     href="http://www.ganji.com/user/register.php?next=http%3A%2F%2Fnc.ganji.com%3A%2Ffang1%2Fanyi%2F"
-                     title="免费注册" target="_self">免费注册</a>
-                  <a rel="nofollow" className="login js-signin-btn"
-                     href="https://passport.ganji.com/login.php?next=http%3A%2F%2Fnc.ganji.com%3A%2Ffang1%2Fanyi%2F"
-                     title="会员登录" target="_self">会员登录</a>
-                </span>
+              <span className="reg-login-btn clearfix">
+                <a rel="nofollow" className="reg js-signup-btn"
+                   href="http://www.ganji.com/user/register.php?next=http%3A%2F%2Fnc.ganji.com%3A%2Ffang1%2Fanyi%2F"
+                   title="免费注册" target="_self">免费注册</a>
+                <a rel="nofollow" className="login js-signin-btn"
+                   href="https://passport.ganji.com/login.php?next=http%3A%2F%2Fnc.ganji.com%3A%2Ffang1%2Fanyi%2F"
+                   title="会员登录" target="_self">会员登录</a>
+              </span>
             </div>
           </div>
         </div>

@@ -18,7 +18,6 @@ class index extends Component {
   render() {
     return (
       <div>
-        <Head/>
         <Nav/>
         <Brumb/>
         <SecectHouse/>

@@ -4,9 +4,12 @@ import store from './reducer/store';
 import {Provider} from 'react-redux';
 import {Route, Router} from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
-import Home from './component/index';
-
 import {Link} from 'react-router-dom';
+import Home from './component/index';
+import Head from './component/Home/Head';
+import Register from './component/Register/Register';
+import Login from './component/Login/Login';
+
 
 const history = createBrowserHistory();
 
@@ -14,7 +17,9 @@ const history = createBrowserHistory();
  * 自定义路由
  */
 const routes = [
-  {path: '/', component: Home},
+  {path: '/home', component: Home},
+  {path: '/register', component: Register},
+  {path: '/login', component: Login},
 ];
 
 export default class App extends Component {
@@ -23,10 +28,13 @@ export default class App extends Component {
       <Provider store={store}>
         <Router history={history}>
           <div>
-            {/*{' | '}*/}
-            {/*<Link to="/bookman">图书馆后台</Link>*/}
-            {/*{' | '}*/}
-            {/*<Link to="/about">About</Link>*/}
+            {' | '}
+            <Link to="/home">首页</Link>
+            {' | '}
+            <Link to="/register">注册</Link>
+            {' | '}
+            <Link to="/login">登陆</Link>
+            <Head/>
             {
               routes.map((route, index) =>
                 <Route key={index} path={route.path} component={route.component}/>)
