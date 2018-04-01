@@ -9,6 +9,7 @@ import Home from './component/index';
 import Head from './component/Home/Head';
 import Register from './component/Register/Register';
 import Login from './component/Login/Login';
+import Release from './component/Release/Release';
 
 
 const history = createBrowserHistory();
@@ -20,6 +21,7 @@ const routes = [
   {path: '/home', component: Home},
   {path: '/register', component: Register},
   {path: '/login', component: Login},
+  {path: '/release', component: Release},
 ];
 
 export default class App extends Component {
@@ -34,6 +36,8 @@ export default class App extends Component {
             <Link to="/register">注册</Link>
             {' | '}
             <Link to="/login">登陆</Link>
+            {' | '}
+            <Link to="/release">发布</Link>
             <Head/>
             {
               routes.map((route, index) =>
