@@ -3,7 +3,6 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {actionCreators} from '../actions/actions';
 import {debug} from 'debug';
-import Head from './Home/Head';
 import Nav from './Home/Nav';
 import Brumb from './SelectHouse/Brumb';
 import SecectHouse from './SelectHouse/SelectHouse';
@@ -19,7 +18,7 @@ class index extends Component {
     return (
       <div>
         <Nav/>
-        <Brumb/>
+        {/*<Brumb/>*/}
         <SecectHouse/>
         <div className="f-h10"/>
         <Houses/>

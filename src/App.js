@@ -43,6 +43,7 @@ export default class App extends Component {
             {' | '}
             <Link to="/details">详情</Link>
             <Head/>
+            <Route path="/" component={Home} exact/>
             {
               routes.map((route, index) =>
                 <Route key={index} path={route.path} component={route.component}/>)
