@@ -9,16 +9,10 @@ const middlewares = [apiMiddleware];
  * 设置初始状态
  */
 const initialState = {
-  addBook: false,
-  updateBook: false,
-  book: [],
-  updateInfo: {
-    id: '',
-    title: '',
-    type: ''
-  },
-  bookId: [],
-  search: []
+  user: [{id: '', uname: ''}],
+  open: {
+    login: 'error'
+  }
 };
 
 const createStoreEnhanced = compose(applyMiddleware(...middlewares))(createStore);

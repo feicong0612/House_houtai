@@ -1,7 +1,7 @@
 /**
  * 图书数据删除模块
  */
-let Book = require("./booksModel.js");
+let Book = require("./usersModel.js");
 const deleteData = function(obj) {
   let id = obj.id;
   let wherestr = {'id': id};

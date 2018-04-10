@@ -8,11 +8,18 @@ import {Link} from 'react-router-dom';
 class Head extends Component {
   constructor(props) {
     super();
+    this.show = this.show.bind(this);
+  }
+
+  show() {
+    this.props.queryData();
   }
 
   render() {
+
     return (
       <div id="header">
+        {/*<button onClick={this.show}>测试</button>*/}
         <div className="head f-w1190 clearfix">
           <div className="city">
             <a className="fc-city" href="#" title="">常州</a>
@@ -27,10 +34,20 @@ class Head extends Component {
           </div>
           <div className="head-r clearfix">
             <div className="f-fl reg-login" data-widget="app/ms_v2/common/base_page.js#userinfoWidget">
-              <span className="reg-login-btn clearfix">
-                <Link className="reg js-signup-btn" to="/register">注册</Link>
-                <Link className="login js-signin-btn" to="/login">登陆</Link>
-              </span>
+              <b className={this.props.value.open.login === 'error' ? '' : 'none'}>
+                <span className="reg-login-btn clearfix">
+                  <Link className="reg js-signup-btn" to="/register">注册</Link>
+                  <Link className="login js-signin-btn" to="/login">登陆</Link>
+                </span>
+              </b>
+              <b className={this.props.value.open.login === 'success' ? '' : 'none'}>
+                <span className="reg-login-btn clearfix">
+                 你好，{this.props.value.user[0].uname}
+                  <a className="login js-signin-btn"
+                     onClick={this.props.loginExit}
+                  >注销</a>
+                </span>
+              </b>
             </div>
           </div>
         </div>

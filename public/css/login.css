@@ -589,7 +589,7 @@ a.link1 {
 }
 
 #login-content {
-  height: 480px;
+  height: 630px;
   background-repeat: no-repeat;
   background-position: center
 }
@@ -613,7 +613,7 @@ a.link1 {
 .login-content {
   position: relative;
   width: 1190px;
-  height: 480px;
+  height: 630px;
   margin: 0 auto;
   -webkit-background-size: 730px 480px;
   background-size: 730px 480px;
@@ -1094,8 +1094,14 @@ form[name=loginFrom_phone] {
   top: 3px
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-resolution: 240dpi) {
-  .login-pop .helpImg {
-    background: url('//sta.ganjistatic1.com/src/image/v6/login/hoverPhone_p_2x.png') no-repeat
-  }
+.background-img {
+  font-size: 7em;
+  color: #fff;
+  position: relative;
+  top: 1em;
+  left: 1em;
+}
+
+.none{
+  display: none;
 }

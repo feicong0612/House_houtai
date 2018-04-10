@@ -4,7 +4,7 @@ let path = require('path');
 let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
-let index = require('./routes/index');
+let userQuery = require('./routes/userQuery');
 let update = require('./routes/update');
 let insert = require('./routes/insert');
 let deleteData = require('./routes/delete');
@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+app.use('/userQuery', userQuery);
 app.use('/update', update);
 app.use('/insert', insert);
 app.use('/delete', deleteData);

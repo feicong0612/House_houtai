@@ -1,7 +1,7 @@
 /**
  * 图书数据更新模块
  */
-let Book = require("./booksModel.js");
+let Book = require("./usersModel.js");
 const updateData = function(obj) {
   let id = obj.id;
   let title = obj.title;

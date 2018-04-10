@@ -63,16 +63,16 @@ class Nav extends Component {
               </form>
               <div className="gj_sys_autoc_rs"/>
             </div>
-            {/*<div className="f-h-edit f-fr">*/}
-            {/*<ul className="list f-clear">*/}
-            {/*<li className="item pub f-fl">*/}
-            {/*<Link to="/release">免费发布信息</Link>*/}
-            {/*</li>*/}
-            {/*<li className="item del f-fl">*/}
-            {/*<a rel="nofollow" target="_blank"*/}
-            {/*href="">修改/删除</a></li>*/}
-            {/*</ul>*/}
-            {/*</div>*/}
+            <div className="f-h-edit f-fr">
+              <ul className="list f-clear">
+                <li className="item pub f-fl">
+                  <Link to="/release">免费发布信息</Link>
+                </li>
+                {/*<li className="item del f-fl">*/}
+                  {/*<a rel="nofollow" target="_blank"*/}
+                     {/*href="">修改/删除</a></li>*/}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

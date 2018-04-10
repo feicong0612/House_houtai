@@ -1,7 +1,7 @@
 /**
  * 图书数据插入模块
  */
-let Book = require("./booksModel.js");
+let Book = require("./usersModel.js");
 const insertData = function(obj) {
   let id = obj.id;
   let bookName = obj.title;

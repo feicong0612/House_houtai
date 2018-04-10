@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {actionCreators} from '../actions/actions';
 import {debug} from 'debug';
 import Nav from './Home/Nav';
-import Brumb from './SelectHouse/Brumb';
 import SecectHouse from './SelectHouse/SelectHouse';
 import Houses from './Houses/Houses';
 import Page from './Page/Page';
