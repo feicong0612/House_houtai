@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/userQuery.js',
+  entry: './src',
   output: {
     filename: 'bundle.js',
     path: __dirname + '/dist'

@@ -1,4 +1,4 @@
-import request, {onSuccess} from '../lib/request';
+import request, {onSuccess, onFailure, onRequest} from '../lib/request';
 
 export const actions = {
   SAY_HELLO: 'SAY_HELLO',
@@ -6,6 +6,7 @@ export const actions = {
   QUERY_USERS: 'QUERY_USERS',         //查询用户信息
   LOGIN_SUCCESS: 'LOGIN_SUCCESS',     //登录成功
   LOGIN_EXIT: 'LOGIN_EXIT',           //注销登录
+  INSERT_USERS: 'INSERT_USERS',       //增加用户
 };
 
 export const actionCreators = {
@@ -13,6 +14,7 @@ export const actionCreators = {
   sendAsyncRequest:
     (params) => request.get('https://jsonplaceholder.typicode.com/posts', params)(actions.SEND_ASYNC_REQUEST),
   queryUsers: (params) => request.get('http://127.0.0.1:3000/userQuery', params)(actions.QUERY_USERS),
+  insertUsers: (params) => request.get('http://127.0.0.1:3000/userInsert', params)(actions.INSERT_USERS),
   loginSuccess: () => {
     return {
       type: 'LOGIN_SUCCESS'
@@ -42,6 +44,10 @@ export const handlers = {
     if (action.payload.user.length > 0) {
       state.user = action.payload.user;
     }
+    return Object.assign({}, state);
+  },
+  [onSuccess(actions.INSERT_USERS)]: (state, action) => {
+    //console.log('增加用户成功', action);
     return Object.assign({}, state);
   },
   [actions.LOGIN_SUCCESS]: (state, action) => {

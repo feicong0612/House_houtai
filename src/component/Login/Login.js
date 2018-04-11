@@ -43,7 +43,7 @@ class login extends Component {
       });
     }
     else {
-      alert('未知错误！');
+      swal('505!', '未知错误！', 'error');
     }
   }
 
@@ -89,7 +89,7 @@ class login extends Component {
                       <span className="clear-btn" data-role="clear-btn"/>
                     </div>
                     <input className="submit" onClick={() => {
-                      this.login(this.state.uname, this.state.upwd);
+                       this.login(this.state.uname, this.state.upwd);
                     }} type="button" value="登录"/>
                   </form>
                 </div>
