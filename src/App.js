@@ -32,16 +32,16 @@ export default class App extends Component {
       <Provider store={store}>
         <Router history={history}>
           <div>
-            {' | '}
-            <Link to="/home">首页</Link>
-            {' | '}
-            <Link to="/register">注册</Link>
-            {' | '}
-            <Link to="/login">登陆</Link>
-            {' | '}
-            <Link to="/release">发布</Link>
-            {' | '}
-            <Link to="/details">详情</Link>
+            {/*{' | '}*/}
+            {/*<Link to="/home">首页</Link>*/}
+            {/*{' | '}*/}
+            {/*<Link to="/register">注册</Link>*/}
+            {/*{' | '}*/}
+            {/*<Link to="/login">登陆</Link>*/}
+            {/*{' | '}*/}
+            {/*<Link to="/release">发布</Link>*/}
+            {/*{' | '}*/}
+            {/*<Link to="/details">详情</Link>*/}
             <Head/>
             <Route path="/" component={Home} exact/>
             {

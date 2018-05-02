@@ -7,6 +7,10 @@ export const actions = {
   LOGIN_SUCCESS: 'LOGIN_SUCCESS',     //登录成功
   LOGIN_EXIT: 'LOGIN_EXIT',           //注销登录
   INSERT_USERS: 'INSERT_USERS',       //增加用户
+  QUERY_HOUSES: 'QUERY_HOUSES',       //查询符合条件房屋信息
+  QUERY_ALL_HOUSES: 'QUERY_ALL_HOUSES',       //查询所有房屋信息
+  SET_CONDITION: 'SET_CONDITION',     //设置条件样式
+  SET_DETAILS: 'SET_DETAILS',         //设置当前房子信息
 };
 
 export const actionCreators = {
@@ -15,6 +19,8 @@ export const actionCreators = {
     (params) => request.get('https://jsonplaceholder.typicode.com/posts', params)(actions.SEND_ASYNC_REQUEST),
   queryUsers: (params) => request.get('http://127.0.0.1:3000/userQuery', params)(actions.QUERY_USERS),
   insertUsers: (params) => request.get('http://127.0.0.1:3000/userInsert', params)(actions.INSERT_USERS),
+  queryHouses: (params) => request.get('http://127.0.0.1:3000/houseQuery', params)(actions.QUERY_HOUSES),
+  queryAllHouses: (params) => request.get('http://127.0.0.1:3000/houseQuery', params)(actions.QUERY_ALL_HOUSES),
   loginSuccess: () => {
     return {
       type: 'LOGIN_SUCCESS'
@@ -23,6 +29,19 @@ export const actionCreators = {
   loginExit: () => {
     return {
       type: 'LOGIN_EXIT'
+    };
+  },
+  setCondition: (condition, value) => {
+    return {
+      type: 'SET_CONDITION',
+      condition: condition,
+      value: value
+    };
+  },
+  setDetails: (idx) => {
+    return {
+      type: 'SET_DETAILS',
+      idx: idx
     };
   },
 };
@@ -50,6 +69,20 @@ export const handlers = {
     //console.log('增加用户成功', action);
     return Object.assign({}, state);
   },
+  [onSuccess(actions.QUERY_HOUSES)]: (state, action) => {
+    //console.log('查询房屋信息成功', action);
+    if (action.payload.house.length >= 0) {
+      state.house = action.payload.house;
+    }
+    return Object.assign({}, state);
+  },
+  [onSuccess(actions.QUERY_ALL_HOUSES)]: (state, action) => {
+    console.log('查询所有房屋信息成功', action);
+    if (action.payload.house.length >= 0) {
+      state.allhouse = action.payload.house;
+    }
+    return Object.assign({}, state);
+  },
   [actions.LOGIN_SUCCESS]: (state, action) => {
     // console.log('查询数据中...');
     state.open.login = 'success';
@@ -61,5 +94,14 @@ export const handlers = {
     state.user = [{id: '', uname: ''}];
     return Object.assign({}, state);
   },
-
+  [actions.SET_CONDITION]: (state, action) => {
+    //console.log('显示条件中...', action.condition, action.value);
+    state.open[action.condition] = action.value;
+    return Object.assign({}, state);
+  },
+  [actions.SET_DETAILS]: (state, action) => {
+    //console.log('显示详细信息中...', action.condition, action.value);
+    state.details = action.idx;
+    return Object.assign({}, state);
+  },
 };

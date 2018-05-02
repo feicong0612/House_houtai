@@ -14,11 +14,8 @@ class title extends Component {
       <div className="f-m-head f-clear">
         <ul className="f-m-title f-clear f-fl">
           <li className="item current"><a href="/">全部房源</a></li>
-          <li className="item"><a href="/">个人</a></li>
-          <li className="item"><a href="/">经纪人</a></li>
-          <li className="item"><a href="/">放心房</a></li>
         </ul>
-        <p className="m-result f-fr">共<span className="num">441套</span>满足条件的房子</p>
+        <p className="m-result f-fr">共<span className="num">{this.props.value.allhouse.length}套</span>满足条件的房子</p>
       </div>
     );
   }

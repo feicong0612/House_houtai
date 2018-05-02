@@ -12,7 +12,13 @@ class Head extends Component {
   }
 
   show() {
-    this.props.queryData();
+    //console.log('开始查询房屋信息');
+    this.props.queryHouses();
+    this.props.queryAllHouses({pageSize: 'all'});
+  }
+
+  componentWillMount() {
+    this.show();
   }
 
   render() {

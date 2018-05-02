@@ -4,8 +4,13 @@ let path = require('path');
 let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
+//用户模块路由
 let userQuery = require('./routes/userQuery');
 let userInsert = require('./routes/userInsert');
+//房子模块路由
+let houseQuery = require('./routes/houseQuery');
+let houseInsert = require('./routes/houseInsert');
+//未使用
 let update = require('./routes/update');
 let deleteData = require('./routes/delete');
 
@@ -33,8 +38,13 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//用户模块路由
 app.use('/userQuery', userQuery);
 app.use('/userInsert', userInsert);
+//房子模块路由
+app.use('/houseQuery', houseQuery);
+app.use('/houseInsert', houseInsert);
+//未使用
 app.use('/update', update);
 app.use('/delete', deleteData);
 

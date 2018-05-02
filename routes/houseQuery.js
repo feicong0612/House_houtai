@@ -1,6 +1,6 @@
 let express = require('express');
 let router = express.Router();
-let queryData = require('../dao/usersQuery');
+let queryData = require('../dao/housesQuery');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   let sort;   //存放客户端传来的显示信息条件
   str = req.query;
   queryData(str, sort, (data) => {
-    res.jsonp({user: data});
+    res.jsonp({house: data});
   });
 });
 

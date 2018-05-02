@@ -90,7 +90,7 @@ class register extends Component {
                 <li className="active"><a href="#">手机快速注册</a>
                 </li>
                 <li className="li_fr">
-                  已有赶集网账号?
+                  已有账号?
                   <span>
                     <Link to="/login">立即登录</Link>
                   </span>

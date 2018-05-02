@@ -1,22 +1,37 @@
 /**
  * 数据插入模块
  */
-let User = require("./usersModel.js");
+let House = require("./housesModel.js");
 const insertData = function(obj) {
   let id = '';
-  let uname = obj.uname;
-  let upwd = obj.upwd;
+  let title = obj.title;
+  let location = obj.location;
+  let community = obj.community;
+  let way = obj.way;
+  let area = obj.area;
+  let rent = obj.rent;
+  let room = obj.room;
+  let toward = obj.toward;
+  let video = obj.video;
   let phone = obj.phone;
   let type = 2;
 
-  let user = new User({
+  let house = new House({
     id: id,
-    uname: uname,
-    upwd: upwd,
+    title: title,
+    location: location,
+    community: community,
+    way: way,
+    area: area,
+    rent: rent,
+    room: room,
+    toward: toward,
+    video: video,
     phone: phone,
     type: type,
   });
-  user.save(function(err, res) {
+
+  house.save(function(err, res) {
 
     if (err) {
       console.log("Error:" + err);

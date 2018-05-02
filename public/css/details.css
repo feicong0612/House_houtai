@@ -9149,8 +9149,6 @@ a.more-a-hover {
   clear: both
 }
 
-
-
 .mask1, .mask2, .mask3, .mask4 {
   float: left;
   height: 80px;
@@ -12829,7 +12827,6 @@ span.common-icon-ming {
 }
 
 .f-card .big-img {
-  background: #ebebeb;
   width: 540px;
   height: 405px;
   margin-bottom: 10px;
@@ -12895,7 +12892,6 @@ span.common-icon-ming {
   line-height: 405px;
   font-size: 0;
   text-align: center;
-  background: url(http://stacdn201.ganjistatic1.com/src/app/ms_v2/housing_v2/html/images/img_big_bg.png) repeat
 }
 
 .f-card .small-wrap {
@@ -12978,7 +12974,7 @@ span.common-icon-ming {
 }
 
 .f-card .card-top {
-  height: 345px
+  height: 250px
 }
 
 .f-er-card .er-im {
@@ -15877,4 +15873,24 @@ span.jp-artist {
 .s_recommend .s_content .main_info p.f-em1p5 {
   display: inline-block;
   width: 14px
+}
+
+.house-details {
+  width: 100%;
+  height: 80%;
+}
+
+.details-bg {
+  background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524068458373&di=69cfe0a46969655c36dbc13477f8e427&imgtype=0&src=http%3A%2F%2Ftxt15-2.book118.com%2F2017%2F1121%2Fbook140991%2F140990696.jpg) center center;
+  background-size: 100% 100%;
+}
+
+.house-video {
+  width: 330px;
+  height: 250px;
+  border: 2px solid #ddd;
+}
+
+.none {
+  display: none;
 }
