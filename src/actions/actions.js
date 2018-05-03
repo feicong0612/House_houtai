@@ -11,6 +11,7 @@ export const actions = {
   QUERY_ALL_HOUSES: 'QUERY_ALL_HOUSES',       //查询所有房屋信息
   SET_CONDITION: 'SET_CONDITION',     //设置条件样式
   SET_DETAILS: 'SET_DETAILS',         //设置当前房子信息
+  CONDITION: 'CONDITION',             //设置条件内容
 };
 
 export const actionCreators = {
@@ -42,6 +43,12 @@ export const actionCreators = {
     return {
       type: 'SET_DETAILS',
       idx: idx
+    };
+  },
+  conditions: (condition) => {
+    return {
+      type: 'CONDITION',
+      condition: condition
     };
   },
 };
@@ -102,6 +109,11 @@ export const handlers = {
   [actions.SET_DETAILS]: (state, action) => {
     //console.log('显示详细信息中...', action.condition, action.value);
     state.details = action.idx;
+    return Object.assign({}, state);
+  },
+  [actions.CONDITION]: (state, action) => {
+    //console.log('显示条件中...', action.condition, action.value);
+    state.currentConditions = action.condition;
     return Object.assign({}, state);
   },
 };

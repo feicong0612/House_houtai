@@ -9,9 +9,11 @@ class brumb extends Component {
     super();
     this.state = {
       left: 0,
-      right: 10000
+      right: 10000,
     };
     this.setRent = this.setRent.bind(this);
+    this.conditions = this.conditions.bind(this);
+    this.setCondition = this.setCondition.bind(this);
   }
 
   setRent(type, value) {
@@ -24,6 +26,43 @@ class brumb extends Component {
     else if (type === 'right') {
       this.setState({
         right: parseInt(value)
+      });
+    }
+  }
+
+  conditions() {
+    let condition = this.state;
+    delete condition.left;
+    delete condition.right;
+    //console.log(condition);
+    return condition;
+  }
+
+  setCondition(type, item) {
+    //console.log(type, item);
+    if (item === '不限') {
+      this.setState({
+        [type]: 'all'
+      }, () => {
+        console.log('条件：', this.conditions());
+        let conditions = this.conditions();
+        this.props.queryHouses(conditions);
+        this.props.conditions(conditions);
+        conditions['pageSize'] = 'all';
+        this.props.queryAllHouses(conditions);
+      });
+    }
+    else {
+      this.setState({
+        [type]: item
+      }, () => {
+        console.log('条件：', this.state);
+        this.props.queryHouses(this.conditions());
+        let conditions = this.conditions();
+        this.props.queryHouses(conditions);
+        this.props.conditions(conditions);
+        conditions['pageSize'] = 'all';
+        this.props.queryAllHouses(conditions);
       });
     }
   }
@@ -48,12 +87,10 @@ class brumb extends Component {
                          e.preventDefault();
                          this.props.setCondition('location', index);
                          if (index === 0) {
-                           this.props.queryHouses();
-                           this.props.queryAllHouses({pageSize: 'all'});
+                           this.setCondition('location', item);
                          }
                          else {
-                           this.props.queryHouses({'location': item});
-                           this.props.queryAllHouses({location: item, pageSize: 'all'});
+                           this.setCondition('location', item);
                          }
                        }}
                     >{item}</a>
@@ -73,12 +110,10 @@ class brumb extends Component {
                          e.preventDefault();
                          this.props.setCondition('way', index);
                          if (index === 0) {
-                           this.props.queryHouses();
-                           this.props.queryAllHouses({pageSize: 'all'});
+                           this.setCondition('way', item);
                          }
                          else {
-                           this.props.queryHouses({'way': item});
-                           this.props.queryAllHouses({way: item, pageSize: 'all'});
+                           this.setCondition('way', item);
                          }
                        }}
                     >{item}</a>
@@ -98,9 +133,7 @@ class brumb extends Component {
                          href="#"
                          onClick={e => {
                            e.preventDefault();
-                           this.props.setCondition('rent', index);
-                           this.props.queryHouses();
-                           this.props.queryAllHouses({pageSize: 'all'});
+                           this.props.setCondition('rent', '不限');
                          }}
                       >{item}</a>);
                   }
@@ -113,12 +146,10 @@ class brumb extends Component {
                            e.preventDefault();
                            this.props.setCondition('rent', index);
                            if (index === 0) {
-                             this.props.queryHouses();
-                             this.props.queryAllHouses({pageSize: 'all'});
+                             this.setCondition('rent', [item[0], item[1]]);
                            }
                            else {
-                             this.props.queryHouses({'rent': [item[0], item[1]]});
-                             this.props.queryAllHouses({pageSize: 'all', rent: [item[0], item[1]]});
+                             this.setCondition('rent', [item[0], item[1]]);
                            }
                          }}
                       >{item[0]}-{item[1]}元</a>
@@ -146,11 +177,7 @@ class brumb extends Component {
                   <a className="price-done js-btn" href="#" id="my_price_btn"
                      onClick={e => {
                        e.preventDefault();
-                       this.props.queryHouses({'rent': [this.state.left, this.state.right]});
-                       this.props.queryAllHouses({
-                         pageSize: 'all',
-                         rent: [this.state.left, this.state.right]
-                       });
+                       this.setCondition('rent', [this.state.left, this.state.right]);
                      }}
                   >确定</a>
                 </span>
@@ -168,15 +195,10 @@ class brumb extends Component {
                          e.preventDefault();
                          this.props.setCondition('type', index);
                          if (index === 0) {
-                           this.props.queryHouses();
-                           this.props.queryAllHouses({pageSize: 'all'});
+                           this.setCondition('type', item);
                          }
                          else {
-                           this.props.queryHouses({'type': item});
-                           this.props.queryAllHouses({
-                             pageSize: 'all',
-                             type: item
-                           });
+                           this.setCondition('type', item);
                          }
                        }}
                     >{item}</a>
@@ -196,15 +218,10 @@ class brumb extends Component {
                          e.preventDefault();
                          this.props.setCondition('room', index);
                          if (index === 0) {
-                           this.props.queryHouses();
-                           this.props.queryAllHouses({pageSize: 'all'});
+                           this.setCondition('room', item);
                          }
                          else {
-                           this.props.queryHouses({'room': item});
-                           this.props.queryAllHouses({
-                             pageSize: 'all',
-                             room: item
-                           });
+                           this.setCondition('room', item);
                          }
                        }}
                     >{item}</a>
@@ -224,15 +241,10 @@ class brumb extends Component {
                          e.preventDefault();
                          this.props.setCondition('toward', index);
                          if (index === 0) {
-                           this.props.queryHouses();
-                           this.props.queryAllHouses({pageSize: 'all'});
+                           this.setCondition('toward', item);
                          }
                          else {
-                           this.props.queryHouses({'toward': item});
-                           this.props.queryAllHouses({
-                             pageSize: 'all',
-                             toward: item
-                           });
+                           this.setCondition('toward', item);
                          }
                        }}
                     >{item}</a>

@@ -59,7 +59,8 @@ const initialState = {
     type: ['不限', '1室', '2室', '3室', '4室', '5室', '5室以上'],
     room: ['不限', '普通住宅', '公寓', '别墅', '平房'],
     toward: ['不限', '东', '西', '南', '北'],
-  }
+  },
+  currentConditions: {}
 };
 
 const createStoreEnhanced = compose(applyMiddleware(...middlewares))(createStore);

@@ -15894,3 +15894,10 @@ span.jp-artist {
 .none {
   display: none;
 }
+
+.currentPage {
+  background: #62af00 !important;
+  border-color: #62af00 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+}

@@ -8,6 +8,23 @@ import Brumb from '../SelectHouse/Brumb';
 class details extends Component {
   constructor(props) {
     super();
+    this.state = {
+      user: '***'
+    };
+    this.houser = this.houser.bind(this);
+  }
+
+  houser() {
+    this.props.queryUsers({id: 1}).then(data => {
+      console.log(data.payload.user[0].uname);
+      this.setState({
+        user: data.payload.user[0].uname
+      });
+    });
+  }
+
+  componentDidMount() {
+    this.houser();
   }
 
   render() {
@@ -91,7 +108,7 @@ class details extends Component {
               <div className="user-info f-clear small-company">
                 <div className="user-info-top">
                   <p className="name">
-                    **女士/先生(个人)
+                    {this.state.user}{' '}女士/先生(个人)
                     <br/>
                     <br/>
                     {house.phone}
