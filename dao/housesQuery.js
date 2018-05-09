@@ -1,14 +1,14 @@
 /*
 *搜索功能模块
 * */
-let House = require("./housesModel.js");
+let House = require('./housesModel.js');
 
-const queryData = (wherestr = {}, sort = {"id": 1}, callback) => {
+const queryData = (wherestr = {}, sort = {'id': 1}, callback) => {
     //console.log('标题', wherestr.title);
     let condition = wherestr;                 //条件
     //标题
     if (wherestr.title) {
-      let reg = new RegExp(wherestr.title, "i");
+      let reg = new RegExp(wherestr.title, 'i');
       condition.title = {$regex: reg};
     }
     if (wherestr.title === '') {

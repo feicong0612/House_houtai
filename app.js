@@ -7,9 +7,13 @@ let bodyParser = require('body-parser');
 //用户模块路由
 let userQuery = require('./routes/userQuery');
 let userInsert = require('./routes/userInsert');
+let userDelete = require('./routes/userDelete');
+let userUpdate = require('./routes/userUpdate');
 //房子模块路由
 let houseQuery = require('./routes/houseQuery');
 let houseInsert = require('./routes/houseInsert');
+let houseDelete = require('./routes/houseDelete');
+let houseUpdate = require('./routes/houseUpdate');
 //未使用
 let update = require('./routes/update');
 let deleteData = require('./routes/delete');
@@ -41,9 +45,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 //用户模块路由
 app.use('/userQuery', userQuery);
 app.use('/userInsert', userInsert);
+app.use('/userDelete', userDelete);
+app.use('/userUpdate', userUpdate);
 //房子模块路由
 app.use('/houseQuery', houseQuery);
 app.use('/houseInsert', houseInsert);
+app.use('/houseDelete', houseDelete);
+app.use('/houseUpdate', houseUpdate);
 //未使用
 app.use('/update', update);
 app.use('/delete', deleteData);

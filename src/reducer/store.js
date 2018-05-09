@@ -9,7 +9,9 @@ const middlewares = [apiMiddleware];
  * 设置初始状态
  */
 const initialState = {
-  user: [{id: '1', uname: ''}],
+  user: [{id: '1', uname: 'fc1', upwd: '100*11', phone: '000'}],
+  allUser: [{id: '1', uname: 'fc1', upwd: '100*11', phone: '000'}],
+  admin: [{id: '1', uname: 'fc1'}],
   details: 0,
   house: [{
     id: '',
@@ -60,7 +62,30 @@ const initialState = {
     room: ['不限', '普通住宅', '公寓', '别墅', '平房'],
     toward: ['不限', '东', '西', '南', '北'],
   },
-  currentConditions: {}
+  currentHouseConditions: {},
+  currentUserConditions: {},
+  currentUserPage: 1,
+  currentHousePage: 1,
+  currentUserInfor: {oldUname: '**', newUname: '****', upwd: '***', phone: '***'},
+  currentHouseInfor: {
+    oldTitle: '**',
+    newTitle: '****',
+    location: '***',
+    community: '***',
+    way: '***',
+    area: '***',
+    rent: '***',
+    type: '***',
+    room: '***',
+    toward: '***',
+    user: '***',
+    phone: '***',
+    video: ''
+  },
+  insertHouse: false,
+  editHouse: false,
+  insertUser: false,
+  editUser: false,
 };
 
 const createStoreEnhanced = compose(applyMiddleware(...middlewares))(createStore);

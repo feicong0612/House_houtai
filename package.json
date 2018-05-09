@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "web": "webpack-dev-server --open --env dev --host 127.0.0.1",
+    "web": "webpack-dev-server --open --env dev --inline --content-base . --history-api-fallback --host 127.0.0.1",
     "lint": "eslint src"
   },
   "dependencies": {
